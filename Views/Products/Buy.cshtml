@@ -1,0 +1,14 @@
+﻿<form asp-action="BuyConfirmed" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+
+    <label>Ödeme Yöntemi</label>
+    <select class="form-control mb-3">
+        <option>Kredi Kartı</option>
+        <option>Havale / EFT</option>
+        <option>Kripto (USDT)</option>
+    </select>
+
+    <button class="btn btn-success">
+        Ödemeyi Tamamla
+    </button>
+</form>

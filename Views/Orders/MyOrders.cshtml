@@ -1,0 +1,36 @@
+﻿@model List<odshop.Models.Order>
+
+@{
+    ViewData["Title"] = "Siparişlerim";
+}
+
+<h2 class="mb-4">🧾 Siparişlerim</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Henüz hiç siparişiniz yok.
+    </div>
+}
+else
+{
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th>Fiyat</th>
+                <th>Tarih</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.Product.Name</td>
+                    <td>@order.Product.Price ₺</td>
+                    <td>@order.OrderDate.ToString("dd.MM.yyyy HH:mm")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

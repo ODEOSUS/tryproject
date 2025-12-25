@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<section class="hero">
+    <canvas id="particles"></canvas>
+
+    <h1>DİJİTAL DÜNYANIN<br><span>PREMIUM MARKETİ</span></h1>
+
+    <a href="/Products" class="discover-btn" id="discoverBtn">
+        KEŞFET
+        <span class="wave"></span>
+    </a>
+</section>
+
+<script>
+    document.getElementById("discoverBtn").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+            window.location.href = "/Products";
+        }, 600);
+    });
+</script>

@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Ödeme";
+}
+
+<h2>Ödeme Yöntemi Seç</h2>
+
+<div class="payment-box">
+    <button onclick="selectPayment('Kart')">💳 Kredi Kartı</button>
+    <button onclick="selectPayment('Crypto')">🪙 Crypto</button>
+</div>
+
+<form asp-action="Complete" method="post" id="paymentForm" style="display:none;">
+    <input type="hidden" name="productId" value="@ViewBag.ProductId" />
+    <input type="hidden" name="paymentType" id="paymentType" />
+
+    <div class="mt-3">
+        <label id="paymentLabel"></label>
+        <input type="text" name="paymentInfo" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">
+        Ödemeyi Tamamla
+    </button>
+</form>
+
+<script>
+    function selectPayment(type) {
+        document.getElementById("paymentForm").style.display = "block";
+        document.getElementById("paymentType").value = type;
+
+        if (type === "Kart") {
+            document.getElementById("paymentLabel").innerText = "Kart Numaranız";
+        } else {
+            document.getElementById("paymentLabel").innerText = "Wallet Adresiniz";
+        }
+    }
+</script>

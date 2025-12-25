@@ -1,0 +1,37 @@
+﻿@model IEnumerable<odshop.Models.Product>
+
+@{
+    ViewData["Title"] = "Ürünler";
+}
+
+<section class="hero">
+    <h2>Dijital Dünyanın Premium Marketi</h2>
+    <p>Hızlı teslimat • Güvenli sistem • 7/24 destek</p>
+    <a href="#urunler" class="btn btn-primary">Keşfet</a>
+</section>
+
+<section class="products" id="urunler">
+    <h3>Öne Çıkan Ürünler</h3>
+
+    <div class="row mt-4">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card p-4 text-center bg-dark text-white">
+                    <h4>@item.Name</h4>
+                    <p>@item.Description</p>
+                    <h5>@item.Price ₺</h5>
+
+                    <!-- GERÇEK SATIN AL -->
+                    <a asp-controller="Orders"
+                       asp-action="Pay"
+                       asp-route-id="@item.Id"
+                       class="btn btn-success mt-3">
+                        Satın Al
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
